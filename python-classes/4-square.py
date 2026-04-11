@@ -1,25 +1,34 @@
 #!/usr/bin/python3
-"""Kvadratın property-lərini təyin edən modul."""
+"""Square klassı üçün getter və setter modulu."""
 
 
 class Square:
     """Kvadratı təmsil edən klass."""
 
     def __init__(self, size=0):
-        """Yeni kvadrat instansiyası yaradır.
-        Qeyd: Burada birbaşa self.__size yazmaq əvəzinə, 
-        setter-i işə salmaq üçün self.size istifadə edirik.
+        """Yeni bir Square instansiyasını inisializasiya edir.
+
+        Args:
+            size (int): Kvadratın ölçüsü.
         """
         self.size = size
 
     @property
     def size(self):
-        """Getter: __size dəyərini qaytarır."""
+        """Kvadratın ölçüsünü (size) əldə edir."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Setter: __size dəyərini təyin edir və yoxlayır."""
+        """Kvadratın ölçüsünü (size) təyin edir.
+
+        Args:
+            value (int): Təyin olunacaq yeni ölçü.
+
+        Raises:
+            TypeError: Əgər value tam ədəd (integer) deyilsə.
+            ValueError: Əgər value 0-dan kiçikdirsə.
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -27,5 +36,9 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Kvadratın sahəsini qaytarır."""
+        """Kvadratın cari sahəsini hesablayır və qaytarır.
+
+        Returns:
+            int: Kvadratın sahəsi.
+        """
         return self.__size ** 2
