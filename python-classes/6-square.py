@@ -6,18 +6,23 @@ class Square:
     """Kvadratı təmsil edən klass."""
 
     def __init__(self, size=0, position=(0, 0)):
-        """İnisializasiya metodu."""
+        """İnisializasiya metodu.
+        
+        Args:
+            size (int): Kvadratın ölçüsü.
+            position (tuple): Kvadratın koordinatları.
+        """
         self.size = size
         self.position = position
 
     @property
     def size(self):
-        """Size getter-i."""
+        """Size dəyərini qaytarır."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Size setter-i və validasiyası."""
+        """Size dəyərini yoxlayır və təyin edir."""
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
@@ -26,32 +31,28 @@ class Square:
 
     @property
     def position(self):
-        """Position getter-i."""
+        """Position dəyərini qaytarır."""
         return self.__position
 
-    @size.setter
     @position.setter
     def position(self, value):
-        """Position setter-i və validasiyası."""
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(i, int) for i in value) or
-                not all(i >= 0 for i in value)):
+        """Position dəyərini yoxlayır və təyin edir."""
+        if (not isinstance(value, tuple) or len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
-        """Sahəni hesablayır."""
+        """Kvadratın sahəsini qaytarır."""
         return self.__size ** 2
 
     def my_print(self):
-        """Kvadratı koordinatlara uyğun çap edir."""
+        """Kvadratı koordinatları nəzərə alaraq çap edir."""
         if self.__size == 0:
             print("")
             return
 
-        # Y koordinatı (boş sətirlər)
         [print("") for i in range(self.__position[1])]
-
-        # X koordinatı (boşluqlar) və kvadratın özü
-        for
+        for i in range(self.__size):
+            print(" " * self.__position[0] + "#" * self.__size)
