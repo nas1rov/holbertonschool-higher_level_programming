@@ -3,7 +3,11 @@
 
 
 class Square:
-    """Kvadratı təmsil edən klass."""
+    """Kvadratı təmsil edən klass.
+
+    Attributes:
+        __size (int): Kvadratın tərəfinin ölçüsü.
+    """
 
     def __init__(self, size=0):
         """Yeni bir Square instansiyasını inisializasiya edir.
@@ -15,18 +19,18 @@ class Square:
 
     @property
     def size(self):
-        """Kvadratın ölçüsünü əldə edir."""
+        """Kvadratın ölçüsünü (size) əldə edir."""
         return self.__size
 
     @size.setter
     def size(self, value):
-        """Kvadratın ölçüsünü təyin edir.
+        """Kvadratın ölçüsünü (size) təyin edir.
 
         Args:
-            value (int): Yeni ölçü dəyəri.
+            value (int): Təyin olunacaq yeni ölçü.
 
         Raises:
-            TypeError: Əgər value integer deyilsə.
+            TypeError: Əgər value tam ədəd (integer) deyilsə.
             ValueError: Əgər value 0-dan kiçikdirsə.
         """
         if not isinstance(value, int):
@@ -36,12 +40,16 @@ class Square:
         self.__size = value
 
     def area(self):
-        """Kvadratın sahəsini hesablayır və qaytarır."""
+        """Kvadratın cari sahəsini hesablayır və qaytarır.
+
+        Returns:
+            int: Kvadratın sahəsi.
+        """
         return self.__size ** 2
 
     def my_print(self):
         """Kvadratı stdout-da # işarəsi ilə çap edir.
-        
+
         Əgər size 0-dırsa, boş bir sətir çap edir.
         """
         if self.__size == 0:
