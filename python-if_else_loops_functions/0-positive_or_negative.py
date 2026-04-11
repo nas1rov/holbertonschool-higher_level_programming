@@ -1,8 +1,7 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 import random
 number = random.randint(-10, 10)
 
-# Buradan etibarən sizin yazmalı olduğunuz kod başlayır
 if number > 0:
     print(f"{number} is positive")
 elif number == 0:
