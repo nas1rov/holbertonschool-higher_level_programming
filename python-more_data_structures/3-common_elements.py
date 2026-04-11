@@ -1,3 +1,4 @@
 #!/usr/bin/python3
-def search_replace(my_list, search, replace):
-    return [replace if x == search else x for x in my_list]
+def common_elements(set_1, set_2):
+    """Returns a set of common elements in two sets"""
+    return set_1 & set_2
