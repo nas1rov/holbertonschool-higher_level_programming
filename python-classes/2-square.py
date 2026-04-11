@@ -1,15 +1,18 @@
 #!/usr/bin/python3
-"""Square klassı üçün validasiya modulu."""
+"""Square klassını təyin edən modul."""
 
 
 class Square:
-    """Kvadrat klassı."""
+    """Kvadratı təmsil edən klass."""
 
     def __init__(self, size=0):
-        """İnistilizasiya zamanı məlumatın doğruluğunu yoxlayırıq.
-        
+        """Yeni bir Square instansiyasını inisializasiya edir.
+
         Args:
-            size (int): Kvadratın tərəfi (default 0).
+            size (int): Yeni kvadratın ölçüsü.
+        Raises:
+            TypeError: Əgər size integer deyilsə.
+            ValueError: Əgər size < 0 olarsa.
         """
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
