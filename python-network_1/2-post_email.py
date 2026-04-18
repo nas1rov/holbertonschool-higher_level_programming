@@ -7,13 +7,17 @@ response (decoded in utf-8).
 import sys
 import urllib.parse
 import urllib.request
+
+
 if __name__ == "__main__":
     url = sys.argv[1]
     email = sys.argv[2]
+
     # Prepare the data to be sent in the POST request
     values = {'email': email}
     data = urllib.parse.urlencode(values)
-    data = data.encode('ascii') # Data should be bytes
+    data = data.encode('ascii')  # Data should be bytes
+
     # Create the request object and send it
     req = urllib.request.Request(url, data)
     with urllib.request.urlopen(req) as response:
