@@ -6,8 +6,6 @@ Manages urllib.error.HTTPError exceptions.
 import urllib.request
 import urllib.error
 import sys
-
-
 if __name__ == "__main__":
     url = sys.argv[1]
     try:
